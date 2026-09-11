@@ -218,47 +218,59 @@
   <section class="section" id="data" aria-labelledby="data-h">
     <div class="wrap">
       <div class="section-head"><span class="num">04</span><h2 id="data-h">Data and code</h2></div>
-      <p class="measure lede">Every figure and every number in the paper is produced by the analysis code from the files below. Links are added at publication.</p>
+      <p class="measure lede">Every figure and every number in the paper is produced by the analysis code from the files below. All files are on the <a href="https://github.com/aakapatel/lavatube-survey/releases/tag/data-v1">data-v1 release</a> of this site's repository, with <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/DATA_README.md">a README</a> on coordinate frames and licences and <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/SHA256SUMS.txt">SHA-256 checksums</a>. A Zenodo record with a DOI mirrors the release; the DOI is added here when it is reserved. Data licence CC BY 4.0.</p>
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th scope="col">Dataset</th><th scope="col">Description</th><th scope="col">Format</th><th scope="col">Link</th></tr>
+            <tr><th scope="col">Dataset</th><th scope="col">Description</th><th scope="col">Format</th><th scope="col">Files</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td>Registered point clouds</td>
-              <td>Interior lidar reconstruction and the surface photogrammetric model, in the common registered frame (ISN2016 / ISH2004).</td>
-              <td class="fmt">LAZ, PLY</td>
-              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+              <td>Registered interior maps</td>
+              <td>Lidar reconstruction of the closed section in the surface frame (ISN2016 / ISH2004 orthometric): first long flight, offline (the paper's primary map) at 10 cm and 30 cm; second long flight, the independent repeat; onboard map of the first flight.</td>
+              <td class="fmt">PCD</td>
+              <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/flf_10cm_ed_ortho.pcd">flight 1, 10 cm (90 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/flf_30cm_ed_ortho.pcd">30 cm (9 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/slf_10cm_ed_ortho.pcd">flight 2, 10 cm (79 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/slf_30cm_ed_ortho.pcd">30 cm (8 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/tube_10cm_ed_ortho.pcd">onboard, 10 cm (39 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/tube_30cm_ed_ortho.pcd">30 cm (4 MB)</a></td>
             </tr>
             <tr>
-              <td>Centreline and cross-sections</td>
-              <td>The extracted centreline resampled at 1 m and the 302 perpendicular cross-section stations with area, width, height and aspect ratio.</td>
-              <td class="fmt">CSV, GeoJSON</td>
-              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+              <td>Full-resolution clouds</td>
+              <td>Full-resolution reconstruction of the first long flight (odometry frame) and the merged surface and subsurface cloud (registered frame, ellipsoidal heights). Split into 1900 MB parts; restore with <code>cat name.pcd.*.part &gt; name.pcd</code>.</td>
+              <td class="fmt">PCD (split)</td>
+              <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/first_long_flight_full.pcd.00.part">flight 1 part 00 (2.0 GB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/first_long_flight_full.pcd.01.part">part 01 (0.5 GB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/full_surface_and_subsurface_merged.pcd.00.part">merged part 00 (2.0 GB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/full_surface_and_subsurface_merged.pcd.01.part">part 01 (1.0 GB)</a></td>
             </tr>
             <tr>
-              <td>Overburden profile</td>
-              <td>Per-station overburden with the consistency-screen flag, the systematic uncertainty band and the orbital transfer test results.</td>
-              <td class="fmt">CSV</td>
-              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+              <td>Surface model</td>
+              <td>Photogrammetric dense cloud of 28 August 2025 (Natural Science Institute of Iceland, surveyor B. V. Óskarsson) cropped to the site, the ground surface at 10 cm, the gridded DEM used for the overburden, and the ArcticDEM and IslandsDEM crops used for validation.</td>
+              <td class="fmt">PCD, GeoTIFF</td>
+              <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/aerial_isn16_ortho_crop.pcd">dense cloud (410 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/aerial_isn16_ortho_10cm.pcd">10 cm (351 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/aerial_isn16_ortho_surface_10cm.pcd">ground surface (228 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/aerial_isn16_ortho_dem.pcd">DEM (535 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/national_dem_site.tif">ArcticDEM crop (3 MB)</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/islandsdem10m_site.tif">IslandsDEM crop</a></td>
             </tr>
             <tr>
-              <td>Surface DEM crop</td>
-              <td>Digital elevation model and orthomosaic over the survey footprint from the eBee X RTK flight of 28 August 2025 (Natural Science Institute of Iceland; ISN2016 / ISH2004).</td>
-              <td class="fmt">GeoTIFF</td>
-              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+              <td>Derived products and every reported number</td>
+              <td>paper_numbers.json, the centreline at 1 m, the 302 cross-section stations with area, width, height and aspect ratio, the overburden profile with its consistency flags and uncertainty band, registration and validation reports, the orbital transfer test, the 1970 survey comparison, the road crossing and the planetary catalogue.</td>
+              <td class="fmt">CSV, JSON</td>
+              <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/analysis_outputs_v9.zip">analysis_outputs_v9.zip (7 MB)</a></td>
+            </tr>
+            <tr>
+              <td>Registration transforms and mission statistics</td>
+              <td>The four-degree-of-freedom baseline registration, the slice-based registration transforms, mission statistics computed from the onboard logs and the planner parameters as flown.</td>
+              <td class="fmt">JSON, CSV</td>
+              <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/analysis_outputs_baseline_and_ed.zip">analysis_outputs_baseline_and_ed.zip (15 MB)</a></td>
+            </tr>
+            <tr>
+              <td>Figures</td>
+              <td>The five main figures and ten Extended Data items as PDF and PNG, as generated by the code.</td>
+              <td class="fmt">PDF, PNG</td>
+              <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/figures_nature_v10.zip">figures_nature_v10.zip (68 MB)</a></td>
             </tr>
             <tr>
               <td>Analysis code</td>
-              <td>Python pipeline that runs registration, morphometry, the overburden computation, the statistics and the orbital transfer test, and generates every figure and number in the paper.</td>
+              <td>Python pipeline that runs the registration, morphometry, overburden computation, statistics and orbital transfer test and generates every figure and number in the paper (Apache 2.0).</td>
               <td class="fmt">Python (git)</td>
-              <td><a class="pending" href="#" aria-disabled="true">Repository</a> <span class="badge">link to be added</span></td>
+              <td><a href="https://github.com/aakapatel/lava-pcd">github.com/aakapatel/lava-pcd</a> · <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/lava-pcd_analysis_code_1d7771d.zip">snapshot (251 MB)</a></td>
             </tr>
             <tr>
               <td>Raw lidar and IMU logs</td>
-              <td>Onboard recordings of the autonomous flights (lidar scans, IMU, odometry, planner and behaviour-tree topics). Available on request because of their size.</td>
-              <td class="fmt">rosbag</td>
+              <td>Onboard recordings of the autonomous flights (lidar scans, IMU, odometry, planner and behaviour-tree topics), about 450 GB. Available on request because of their size.</td>
+              <td class="fmt">MCAP</td>
               <td><a href="mailto:akapat@ltu.se?subject=Lava%20tube%20raw%20logs%20request">Request by email</a></td>
             </tr>
           </tbody>
