@@ -161,7 +161,7 @@ p { margin: 0 0 1em; }
   background: var(--panel);
 }
 .facts .wrap {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem 2rem; padding: 2rem 0;
 }
 .fact { border-left: 2px solid var(--accent); padding-left: 0.9rem; }
