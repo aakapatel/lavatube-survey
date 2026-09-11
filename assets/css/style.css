@@ -320,7 +320,7 @@ td.fmt { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-soft); w
 .cite-actions .copied[hidden] { display: none; }
 
 /* ---------- Team ---------- */
-.team { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.25rem; }
+.team { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.25rem; }
 .person { border: 1px solid var(--hair); border-radius: var(--radius); background: var(--panel); box-shadow: var(--shadow); padding: 1rem 1.15rem; }
 .person .name { font-weight: 600; letter-spacing: -0.01em; }
 .person .role { color: var(--meta); font-size: 0.9rem; margin-top: 0.15rem; }
