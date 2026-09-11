@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autonomous interior survey of a lava tube for planetary habitat assessment</title>
+  <meta name="description" content="An autonomous aerial robot mapped 300 m of the closed section of Raufarhólshellir, Iceland, in one flight and produced the first continuous metre-resolution roof-thickness profile of a natural lava tube. Project page with summary, figures, video, data and code.">
+  <meta name="author" content="Akash Patel, Nikolaos Stathoulopoulos, Edward W. Llewellin, Birgir V. Óskarsson, George Nikolakopoulos">
+  <meta property="og:title" content="Autonomous interior survey of a lava tube for planetary habitat assessment">
+  <meta property="og:description" content="300 m of a lava tube mapped in one autonomous flight; a continuous roof-thickness profile for planetary habitat assessment.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/figures/fig3_merged_model.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#summary">Skip to content</a>
+
+<header class="nav" aria-label="Site navigation">
+  <div class="wrap">
+    <a class="brand" href="#top">Lava tube survey</a>
+    <nav aria-label="Page sections">
+      <ul>
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#figures">Figures</a></li>
+        <li><a href="#data">Data and code</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#cite">Cite</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap">
+      <p class="kicker">Manuscript under review, 2026</p>
+      <h1 id="title">Autonomous interior survey of a lava tube for planetary habitat assessment</h1>
+      <p class="authors">
+        Akash Patel<sup>1,*</sup>,
+        Nikolaos Stathoulopoulos<sup>1</sup>,
+        Edward W. Llewellin<sup>2</sup>,
+        Birgir V. Óskarsson<sup>3</sup> and
+        George Nikolakopoulos<sup>1</sup>
+      </p>
+      <ul class="affils">
+        <li><sup>1</sup>Robotics and Artificial Intelligence Group, Luleå University of Technology, Sweden</li>
+        <li><sup>2</sup>Department of Earth Sciences, Durham University, United Kingdom</li>
+        <li><sup>3</sup>Natural Science Institute of Iceland, Garðabær, Iceland</li>
+        <li><sup>*</sup>Correspondence: <a href="mailto:akapat@ltu.se" style="color:#f3efe6">akapat@ltu.se</a></li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn disabled" href="#" aria-disabled="true" title="The preprint link will be added when it is available">Preprint (coming soon)</a>
+        <a class="btn" href="#video">Video</a>
+        <a class="btn" href="#data">Data and code</a>
+      </div>
+      <p class="status">Field campaign: Raufarhólshellir, Iceland, August 2025.</p>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="Key numbers">
+    <div class="wrap">
+      <div class="fact"><div class="num">300 m</div><div class="lbl">of the closed section of Raufarhólshellir mapped in one autonomous flight</div></div>
+      <div class="fact"><div class="num">0</div><div class="lbl">positioning infrastructure and no command after launch</div></div>
+      <div class="fact"><div class="num">3</div><div class="lbl">skylights anchor the interior map to an independent surface model</div></div>
+      <div class="fact"><div class="num">1 m</div><div class="lbl">resolution of the continuous roof-thickness profile</div></div>
+      <div class="fact"><div class="num">2 to 14 m</div><div class="lbl">of rock cover along the surveyed reach</div></div>
+      <div class="fact"><div class="num">84%</div><div class="lbl">of stations exceed a shielding column of 500 g cm<sup>-2</sup></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="summary" aria-labelledby="summary-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">01</span><h2 id="summary-h">Summary</h2></div>
+      <div class="measure">
+        <p>Lava tubes on the Moon and Mars are leading candidates for crewed shelters, because a basalt roof blocks ionising radiation and damps the thermal swing at the surface. Orbital imagery has catalogued hundreds of candidate entrances, but every detection ends at the opening. Roof thickness, the shape of the void beneath and whether the roof will stand cannot be seen from above. On Earth, roof thickness has been measured at isolated transects, never continuously along a natural tube.</p>
+        <p>Here we show that an autonomous aerial robot obtains that measurement in a single flight. With no positioning infrastructure and no command after launch, it reconstructed 300 metres of Raufarhólshellir, a lava tube in Iceland. Its three skylights anchor the interior to an independent surface model and yield a continuous, metre-resolution profile of the rock cover. The cover ranges from a few metres to fourteen and shields against cosmic rays almost everywhere, so the limiting constraint on shelter is structural. The standing spans demand rock strengths within the range measured for jointed basalt. The measurement survives degradation of the surface model to orbital quality, so the workflow transfers to the catalogued skylights of Mars and the Moon.</p>
+        <p class="note">The surface model is an eBee X RTK photogrammetric survey flown on 28 August 2025 by the Natural Science Institute of Iceland. The interior map comes from the lidar-inertial reconstruction of the robot's own flight. The orbital transfer test degrades the surface model to the posting and vertical noise of HiRISE-, LROC- and CTX-class terrain models and repeats the whole computation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="video" aria-labelledby="video-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">02</span><h2 id="video-h">Supplementary video</h2></div>
+      <p class="measure lede">The flight from launch to the deepest station, the map growing onboard, and the registration through the skylights.</p>
+      <div class="video-frame">
+        <div class="video-placeholder">
+          <div class="card">
+            <strong>Supplementary Video 1 will appear here</strong>
+            <span>The video is released with the paper. Check back after publication.</span>
+          </div>
+        </div>
+        <!--
+        Option A: self-hosted file. Put the file at assets/video/supplementary_video_1.mp4
+        and a poster frame at assets/video/poster.jpg, then delete the placeholder above.
+        <video controls preload="metadata" poster="assets/video/poster.jpg">
+          <source src="assets/video/supplementary_video_1.mp4" type="video/mp4">
+          Your browser does not support the video element.
+        </video>
+
+        Option B: YouTube embed. Replace VIDEO_ID and delete the placeholder above.
+        <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Supplementary Video 1"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="figures" aria-labelledby="figures-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">03</span><h2 id="figures-h">Figures</h2></div>
+      <p class="measure note">Click a figure to open it at full size. Legends follow the manuscript.</p>
+
+      <figure class="figure" id="fig1">
+        <a class="frame" href="assets/figures/fig1_anatomy_site.jpg" data-lightbox data-alt="Anatomy of a lava tube and the field site" data-caption="Figure 1 | Anatomy of a lava tube and the field site.">
+          <img src="assets/figures/fig1_anatomy_site.jpg" width="1800" height="1100" alt="Anatomy of a lava tube and the field site" loading="lazy">
+        </a>
+        <figcaption>
+          <span class="title">Figure 1<span class="sep">|</span>Anatomy of a lava tube and the field site</span>
+          <p><b>a</b>, Long section and cross-section of a basaltic lava tube: a roof of stacked flow units under soil encloses the drained conduit; where the roof has failed a skylight opens to the surface and breakdown blocks pile on the floor. The overburden <i>τ</i> is the vertical separation between the surface and the highest interior ceiling; <i>L</i> is the conduit span. An orbiter resolves only the skylight aperture; the skylight rim is the one feature seen both from above and from within, and is the registration anchor between the two data sets. <b>b</b>, Raufarhólshellir, southwest Iceland (inset): the surveyed reach of the tube (centreline, white) under the August 2025 orthomosaic, with the entrance, the three skylights S1 to S3 and the road that crosses the tube at the far end of the survey; the dashed line continues the tube along the 1970 map sheet beyond the surveyed reach.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="figure" id="fig2">
+        <a class="frame" href="assets/figures/fig2_survey.jpg" data-lightbox data-alt="Autonomous survey of Raufarhólshellir" data-caption="Figure 2 | Autonomous survey of Raufarhólshellir.">
+          <img src="assets/figures/fig2_survey.jpg" width="1800" height="1600" alt="Autonomous survey of Raufarhólshellir" loading="lazy">
+        </a>
+        <figcaption>
+          <span class="title">Figure 2<span class="sep">|</span>Autonomous survey of Raufarhólshellir</span>
+          <p><b>a</b>, The aerial robot (dashed boxes) in the daylit chamber beneath a skylight, where wind-blown snow forms a cone, and in a dark constriction of the closed section. <b>b</b>, The lidar-inertial reconstruction of one mission at an early and at the final stage, coloured by height. <b>c</b>, The rolling global graph (light nodes and edges) over the reconstruction, with the validated route from the robot to the nearest skylight drawn in red; each skylight is held as a persistent frontier that doubles as an exit.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="figure" id="fig3">
+        <a class="frame" href="assets/figures/fig3_merged_model.jpg" data-lightbox data-alt="The registered surface-subsurface model of Raufarhólshellir" data-caption="Figure 3 | The registered surface-subsurface model of Raufarhólshellir.">
+          <img src="assets/figures/fig3_merged_model.jpg" width="1800" height="1700" alt="The registered surface-subsurface model of Raufarhólshellir" loading="lazy">
+        </a>
+        <figcaption>
+          <span class="title">Figure 3<span class="sep">|</span>The registered surface-subsurface model of Raufarhólshellir</span>
+          <p><b>a</b>, The photogrammetric surface (true colour) with a swath 8 m either side of the centreline removed along the conduit to expose the interior lidar reconstruction, coloured by depth beneath the surface; the road at the left gives scale. <b>b</b>, Plan view: overburden per 1 m cell over the shaded relief, with the centreline (white), arc-length marks every 50 m, the skylights S1 to S3 (orange; white cells inside the openings, where the surface model has no return) and the stations excluded from the statistics (blue-grey). <b>c</b>, Long section along the centreline: surface, interior ceiling and floor, with the cover coloured by <i>τ</i> where retained and grey where excluded; vertical exaggeration 3×. <b>d</b>, Transverse slice at <i>s</i> = 281 m: the surface skin and the interior lidar section at the same horizontal position, with the intervening slab dimensioned.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="figure" id="fig4">
+        <a class="frame" href="assets/figures/fig4_geometry_cover.png" data-lightbox data-alt="Geometry and rock cover along the surveyed tube" data-caption="Figure 4 | Geometry and rock cover along the surveyed tube.">
+          <img src="assets/figures/fig4_geometry_cover.png" width="1800" height="1700" alt="Geometry and rock cover along the surveyed tube" loading="lazy">
+        </a>
+        <figcaption>
+          <span class="title">Figure 4<span class="sep">|</span>Geometry and rock cover along the surveyed tube</span>
+          <p><b>a</b>, Plan of the centreline with the skylights and ticks every 50 m. <b>b</b>, Cross-section area, width and height against along-tube distance; orange bands mark the skylights. <b>c</b>, Overburden <i>τ</i> against along-tube distance; the shaded band is the systematic registration-datum uncertainty of ±1.5 m common to all stations, and grey ticks mark stations excluded by the consistency screen. <b>d</b>, Distribution of <i>τ</i> over the 276 retained stations (vertical line, median), with the areal shielding mass at 2,600 kg m<sup>-3</sup> on the upper axis. <b>e</b>, Overburden against local span <i>L</i> for intact roof (green) and the failed spans at the skylights (orange), with the minimum thickness required under the clamped-strip model at rock-mass tensile strengths of 0.5, 1 and 2.5 MPa (black curves). <b>f</b>, Centreline elevation.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="figure" id="fig5">
+        <a class="frame" href="assets/figures/fig5_planetary.png" data-lightbox data-alt="The terrestrial measurement against the catalogued planetary features" data-caption="Figure 5 | The terrestrial measurement against the catalogued planetary features.">
+          <img src="assets/figures/fig5_planetary.png" width="1800" height="1180" alt="The terrestrial measurement against the catalogued planetary features" loading="lazy">
+        </a>
+        <figcaption>
+          <span class="title">Figure 5<span class="sep">|</span>The terrestrial measurement against the catalogued planetary features</span>
+          <p><b>a</b>, Cumulative distributions of aperture long axis by feature type: the 131 dimensioned Martian atypical pit craters (outer outline) and the dimensioned lunar pits by inner aperture, separated into 248 impact-melt pits and 18 mare and highland pits; the three Raufarhólshellir skylights are dotted. <b>b</b>, Maximum stable span under the clamped-strip model, <i>L</i><sub>max</sub> = √(<i>σ</i><sub>t</sub> <i>τ</i> / (<i>β ρ g</i>)), at <i>ρ</i> = 2,600 kg m<sup>-3</sup> on Earth, Mars and the Moon, for a rock-mass tensile strength of 1 MPa (lines) and 0.5 to 2.5 MPa (bands); the dot marks the median cover of this survey on the Earth curve. <b>c</b>, The orbital transfer test: per-station error of the overburden recomputed with the surface degraded to the posting and vertical noise of planetary stereo terrain models, with the interior map and registration held fixed; the dashed line is the profile's own uncertainty and the green figures give the fraction of the thick-thin contrast retained (means over 20 noise realisations; the doming case is a single deterministic warp).</p>
+        </figcaption>
+      </figure>
+
+      <details class="ed" id="extended-data">
+        <summary>Extended Data <span class="count">8 figures and 2 tables</span></summary>
+        <div class="ed-grid">
+          <a class="ed-item" href="assets/figures/ed1_site_photos.jpg" data-lightbox data-alt="Extended Data Figure 1: the skylights and the interior of the closed section" data-caption="Extended Data Fig. 1 | The skylights and the interior of the closed section.">
+            <div class="thumb"><img src="assets/figures/ed1_site_photos_thumb.jpg" alt="Extended Data Figure 1: the skylights and the interior of the closed section" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 1</span>The skylights and the interior of the closed section</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed2_platform_architecture.jpg" data-lightbox data-alt="Extended Data Figure 2: the aerial robot and its mission supervisor" data-caption="Extended Data Fig. 2 | The aerial robot and its mission supervisor.">
+            <div class="thumb"><img src="assets/figures/ed2_platform_architecture_thumb.jpg" alt="Extended Data Figure 2: the aerial robot and its mission supervisor" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 2</span>The aerial robot and its mission supervisor</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed3_planner_behaviour.jpg" data-lightbox data-alt="Extended Data Figure 3: exploration behaviour of the planner inside the conduit" data-caption="Extended Data Fig. 3 | Exploration behaviour of the planner inside the conduit.">
+            <div class="thumb"><img src="assets/figures/ed3_planner_behaviour_thumb.jpg" alt="Extended Data Figure 3: exploration behaviour of the planner inside the conduit" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 3</span>Exploration behaviour of the planner inside the conduit</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed4_deployments.jpg" data-lightbox data-alt="Extended Data Figure 4: rockfall inspection missions with the same autonomy stack in an operating underground mine" data-caption="Extended Data Fig. 4 | Rockfall inspection missions with the same autonomy stack in an operating underground mine.">
+            <div class="thumb"><img src="assets/figures/ed4_deployments_thumb.jpg" alt="Extended Data Figure 4: rockfall inspection missions with the same autonomy stack in an operating underground mine" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 4</span>Rockfall inspection missions with the same autonomy stack in an operating underground mine</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed5_registration_consistency.png" data-lightbox data-alt="Extended Data Figure 5: registration validation and the map consistency screen" data-caption="Extended Data Fig. 5 | Registration validation and the map consistency screen.">
+            <div class="thumb"><img src="assets/figures/ed5_registration_consistency_thumb.jpg" alt="Extended Data Figure 5: registration validation and the map consistency screen" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 5</span>Registration validation and the map consistency screen</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed6_centreline_morphometry.png" data-lightbox data-alt="Extended Data Figure 6: centreline extraction, cross-section geometry, sinuosity and aspect ratio" data-caption="Extended Data Fig. 6 | Centreline extraction, cross-section geometry, sinuosity and aspect ratio.">
+            <div class="thumb"><img src="assets/figures/ed6_centreline_morphometry_thumb.jpg" alt="Extended Data Figure 6: centreline extraction, cross-section geometry, sinuosity and aspect ratio" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 6</span>Centreline extraction, cross-section geometry, sinuosity and aspect ratio</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed7_dem_validation.jpg" data-lightbox data-alt="Extended Data Figure 7: surface model validation and orbital transfer test" data-caption="Extended Data Fig. 7 | Surface model validation and orbital transfer test.">
+            <div class="thumb"><img src="assets/figures/ed7_dem_validation_thumb.jpg" alt="Extended Data Figure 7: surface model validation and orbital transfer test" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 7</span>Surface model validation and orbital transfer test</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed8_survey1970.jpg" data-lightbox data-alt="Extended Data Figure 8: the lidar survey against the 1970 theodolite survey, and the road crossing" data-caption="Extended Data Fig. 8 | The lidar survey against the 1970 theodolite survey, and the road crossing.">
+            <div class="thumb"><img src="assets/figures/ed8_survey1970_thumb.jpg" alt="Extended Data Figure 8: the lidar survey against the 1970 theodolite survey, and the road crossing" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Fig. 8</span>The lidar survey against the 1970 theodolite survey, and the road crossing</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed_table1_missions.png" data-lightbox data-alt="Extended Data Table 1: mission summary of the two long autonomous flights" data-caption="Extended Data Table 1 | Mission summary of the two long autonomous flights.">
+            <div class="thumb"><img src="assets/figures/ed_table1_missions_thumb.jpg" alt="Extended Data Table 1: mission summary of the two long autonomous flights" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Table 1</span>Mission summary of the two long autonomous flights</div>
+          </a>
+          <a class="ed-item" href="assets/figures/ed_table2_planner_params.jpg" data-lightbox data-alt="Extended Data Table 2: platform configuration and planner parameters of the Iceland deployment" data-caption="Extended Data Table 2 | Platform configuration and planner parameters of the Iceland deployment.">
+            <div class="thumb"><img src="assets/figures/ed_table2_planner_params_thumb.jpg" alt="Extended Data Table 2: platform configuration and planner parameters of the Iceland deployment" loading="lazy"></div>
+            <div class="cap"><span class="id">Extended Data Table 2</span>Platform configuration and planner parameters of the Iceland deployment</div>
+          </a>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="data" aria-labelledby="data-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">04</span><h2 id="data-h">Data and code</h2></div>
+      <p class="measure lede">Every figure and every number in the paper is produced by the analysis code from the files below. Links are added at publication.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Dataset</th><th scope="col">Description</th><th scope="col">Format</th><th scope="col">Link</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Registered point clouds</td>
+              <td>Interior lidar reconstruction and the surface photogrammetric model, in the common registered frame (ISN2016 / ISH2004).</td>
+              <td class="fmt">LAZ, PLY</td>
+              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+            </tr>
+            <tr>
+              <td>Centreline and cross-sections</td>
+              <td>The extracted centreline resampled at 1 m and the 302 perpendicular cross-section stations with area, width, height and aspect ratio.</td>
+              <td class="fmt">CSV, GeoJSON</td>
+              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+            </tr>
+            <tr>
+              <td>Overburden profile</td>
+              <td>Per-station overburden with the consistency-screen flag, the systematic uncertainty band and the orbital transfer test results.</td>
+              <td class="fmt">CSV</td>
+              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+            </tr>
+            <tr>
+              <td>Surface DEM crop</td>
+              <td>Digital elevation model and orthomosaic over the survey footprint from the eBee X RTK flight of 28 August 2025 (Natural Science Institute of Iceland; ISN2016 / ISH2004).</td>
+              <td class="fmt">GeoTIFF</td>
+              <td><a class="pending" href="#" aria-disabled="true">Download</a> <span class="badge">link to be added</span></td>
+            </tr>
+            <tr>
+              <td>Analysis code</td>
+              <td>Python pipeline that runs registration, morphometry, the overburden computation, the statistics and the orbital transfer test, and generates every figure and number in the paper.</td>
+              <td class="fmt">Python (git)</td>
+              <td><a class="pending" href="#" aria-disabled="true">Repository</a> <span class="badge">link to be added</span></td>
+            </tr>
+            <tr>
+              <td>Raw lidar and IMU logs</td>
+              <td>Onboard recordings of the autonomous flights (lidar scans, IMU, odometry, planner and behaviour-tree topics). Available on request because of their size.</td>
+              <td class="fmt">rosbag</td>
+              <td><a href="mailto:akapat@ltu.se?subject=Lava%20tube%20raw%20logs%20request">Request by email</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="publications" aria-labelledby="pubs-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">05</span><h2 id="pubs-h">Related publications</h2></div>
+      <p class="measure lede">The exploration planner flown in the tube and its ground-aerial extension.</p>
+      <ol class="pubs">
+        <li class="pub">
+          <span class="title">STAGE: Scalable and Traversability-Aware Graph based Exploration Planner for Dynamically Varying Environments</span>
+          <span class="meta">A. Patel, M. A. V. Saucedo, C. Kanellakis and G. Nikolakopoulos. 2024 IEEE International Conference on Robotics and Automation (ICRA), pp. 5949–5955.</span>
+          <span class="links">
+            <a href="https://doi.org/10.1109/ICRA57147.2024.10610939">DOI 10.1109/ICRA57147.2024.10610939</a>
+            <a href="https://arxiv.org/abs/2402.02566">arXiv:2402.02566</a>
+          </span>
+        </li>
+        <li class="pub">
+          <span class="title">A Hierarchical Graph-Based Terrain-Aware Autonomous Navigation Approach for Complementary Multimodal Ground-Aerial Exploration</span>
+          <span class="meta">A. Patel, M. A. V. Saucedo, N. Stathoulopoulos, V. N. Sankaranarayanan, I. Tevetzidis, C. Kanellakis and G. Nikolakopoulos. 2025 IEEE International Conference on Robotics and Automation (ICRA), pp. 15879–15885.</span>
+          <span class="links">
+            <a href="https://doi.org/10.1109/ICRA55743.2025.11128079">DOI 10.1109/ICRA55743.2025.11128079</a>
+            <a href="https://arxiv.org/abs/2505.14859">arXiv:2505.14859</a>
+          </span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="cite" aria-labelledby="cite-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">06</span><h2 id="cite-h">Cite</h2></div>
+      <p class="measure note">The entry below is a placeholder until the paper is published. It will be replaced with the final reference and DOI.</p>
+      <div class="cite-box">
+<pre id="bibtex">@unpublished{patel2026lavatube,
+  author = {Patel, Akash and Stathoulopoulos, Nikolaos and Llewellin, Edward W. and {\'O}skarsson, Birgir V. and Nikolakopoulos, George},
+  title  = {Autonomous interior survey of a lava tube for planetary habitat assessment},
+  note   = {Manuscript under review},
+  year   = {2026}
+}</pre>
+      </div>
+      <div class="cite-actions">
+        <button class="btn light" id="copy-bibtex" type="button">Copy BibTeX</button>
+        <span class="copied" id="copied-note" role="status" hidden>Copied to clipboard</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">07</span><h2 id="contact-h">Team and contact</h2></div>
+      <div class="team">
+        <div class="person">
+          <div class="name">Akash Patel</div>
+          <div class="role">Corresponding author</div>
+          <div class="aff">Robotics and Artificial Intelligence Group, Luleå University of Technology, Sweden</div>
+          <div class="mail"><a href="mailto:akapat@ltu.se">akapat@ltu.se</a></div>
+        </div>
+        <div class="person">
+          <div class="name">Nikolaos Stathoulopoulos</div>
+          <div class="aff">Robotics and Artificial Intelligence Group, Luleå University of Technology, Sweden</div>
+        </div>
+        <div class="person">
+          <div class="name">Edward W. Llewellin</div>
+          <div class="aff">Department of Earth Sciences, Durham University, United Kingdom</div>
+        </div>
+        <div class="person">
+          <div class="name">Birgir V. Óskarsson</div>
+          <div class="aff">Natural Science Institute of Iceland, Garðabær, Iceland</div>
+        </div>
+        <div class="person">
+          <div class="name">George Nikolakopoulos</div>
+          <div class="aff">Robotics and Artificial Intelligence Group, Luleå University of Technology, Sweden</div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:1.5rem">Questions about the data, the code or the field campaign: write to the corresponding author.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>This work has been partially funded by the European Union's Horizon 2020 research and innovation programme under grant agreement No. 101138451 (PERSEPHONE), by the LKAB Sustainable Underground Mining Academy, and by the foundation-funded project Extreme Environment Robotized Inspection Beyond Line of Sight.</p>
+    <p class="fine">Site content is released under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> unless stated otherwise. Figures are from the manuscript under review, 2026. Surface survey data: Natural Science Institute of Iceland.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Figure viewer" aria-hidden="true">
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous figure">&#8249;</button>
+  <button class="lb-nav lb-next" type="button" aria-label="Next figure">&#8250;</button>
+  <div class="lb-body"><img alt=""></div>
+  <div class="lb-cap"></div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
