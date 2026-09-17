@@ -14,8 +14,9 @@ because every asset path is relative.
 index.html              the page
 assets/css/style.css    stylesheet
 assets/js/main.js       nav highlight, figure lightbox, copy-BibTeX button
-assets/figures/         web copies of the five main figures and the ten
-                        Extended Data items (max 1800 px wide, each under 700 KB)
+assets/figures/         web copies of the five main figures, the ten
+                        Extended Data items and the rim ground-truth figure
+                        (max 1800 px wide, each under 700 KB)
 .nojekyll               tells GitHub Pages to serve the files as they are
 LICENSE                 CC BY 4.0 for the site content
 ```
@@ -54,6 +55,16 @@ by a `<span class="badge">link to be added</span>`. For each released item, set 
   `aria-disabled`, and change the label.
 - Cite: replace the `@unpublished` entry inside `<pre id="bibtex">` with the
   published reference. Escape non-ASCII characters in BibTeX as in the placeholder.
+
+## Ground-truth section
+
+Section `id="groundtruth"` reports the tape measurements of 15 September 2026
+at the skylight rims against the registered model. Its figure
+(`assets/figures/rim_groundtruth.png`) comes from
+`lavatube_maps_data_analysis/analysis/make_web_groundtruth_figure.py` and its
+table from `analysis_out_v9/skylight_groundtruth.csv`; if the comparison is
+rerun, regenerate the figure, copy it at 1800 px wide, and update the table
+cells by hand from the CSV.
 
 ## Regenerate figure copies
 

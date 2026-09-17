@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Autonomous interior survey of a lava tube for planetary habitat assessment</title>
-  <meta name="description" content="An autonomous aerial robot mapped 300 m of the closed section of Raufarhólshellir, Iceland, in one flight and produced the first continuous metre-resolution roof-thickness profile of a natural lava tube. Project page with summary, figures, video, data and code.">
+  <meta name="description" content="An autonomous aerial robot mapped 300 m of the closed section of Raufarhólshellir, Iceland, in one flight and measured the rock cover above the tube at every metre. Tape measurements at the skylight rims agree with the lidar to 0.3 m. Summary, figures, ground truth, data and code.">
   <meta name="author" content="Akash Patel, Nikolaos Stathoulopoulos, Edward W. Llewellin, Birgir V. Óskarsson, George Nikolakopoulos">
   <meta property="og:title" content="Autonomous interior survey of a lava tube for planetary habitat assessment">
-  <meta property="og:description" content="300 m of a lava tube mapped in one autonomous flight; a continuous roof-thickness profile for planetary habitat assessment.">
+  <meta property="og:description" content="300 m of a lava tube mapped in one autonomous flight, a roof-thickness profile at every metre, and a tape check at the rims that agrees to 0.3 m.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/figures/fig3_merged_model.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,7 @@
         <li><a href="#summary">Summary</a></li>
         <li><a href="#video">Video</a></li>
         <li><a href="#figures">Figures</a></li>
+        <li><a href="#groundtruth">Ground truth</a></li>
         <li><a href="#data">Data and code</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#cite">Cite</a></li>
@@ -59,16 +60,18 @@
         <a class="btn" href="#video">Video</a>
         <a class="btn" href="#data">Data and code</a>
       </div>
-      <p class="status">Field campaign: Raufarhólshellir, Iceland, August 2025.</p>
+      <p class="status">Raufarhólshellir, Iceland. Autonomous flights April 2025; surface survey 28 August 2025; tape check at the rims 15 September 2026.</p>
     </div>
   </section>
 
   <section class="facts" aria-label="Key numbers">
     <div class="wrap">
       <div class="fact"><div class="num">300 m</div><div class="lbl">of the closed section of Raufarhólshellir mapped in one autonomous flight</div></div>
-      <div class="fact"><div class="num">0</div><div class="lbl">positioning infrastructure and no command after launch</div></div>
+      <div class="fact"><div class="num">0</div><div class="lbl">commands after launch, and no positioning infrastructure in the tube</div></div>
       <div class="fact"><div class="num">3</div><div class="lbl">skylights anchor the interior map to an independent surface model</div></div>
-      <div class="fact"><div class="num">1 m</div><div class="lbl">resolution of the continuous roof-thickness profile</div></div>
+      <div class="fact"><div class="num">1 m</div><div class="lbl">spacing of the rock-cover profile along the tube</div></div>
+      <div class="fact"><div class="num">14 m</div><div class="lbl">thickest cover measured, under the road at the far end of the survey</div></div>
+      <div class="fact"><div class="num">0.3 m</div><div class="lbl">agreement between the lidar roof thickness and a tape at seven skylight rims</div></div>
       <div class="fact"><div class="num">2 to 14 m</div><div class="lbl">of rock cover along the surveyed reach</div></div>
       <div class="fact"><div class="num">84%</div><div class="lbl">of stations exceed a shielding column of 500 g cm<sup>-2</sup></div></div>
     </div>
@@ -78,9 +81,10 @@
     <div class="wrap">
       <div class="section-head"><span class="num">01</span><h2 id="summary-h">Summary</h2></div>
       <div class="measure">
-        <p>Lava tubes on the Moon and Mars are leading candidates for crewed shelters, because a basalt roof blocks ionising radiation and damps the thermal swing at the surface. Orbital imagery has catalogued hundreds of candidate entrances, but every detection ends at the opening. Roof thickness, the shape of the void beneath and whether the roof will stand cannot be seen from above. On Earth, roof thickness has been measured at isolated transects, never continuously along a natural tube.</p>
-        <p>Here we show that an autonomous aerial robot obtains that measurement in a single flight. With no positioning infrastructure and no command after launch, it reconstructed 300 metres of Raufarhólshellir, a lava tube in Iceland. Its three skylights anchor the interior to an independent surface model and yield a continuous, metre-resolution profile of the rock cover. The cover ranges from a few metres to fourteen and shields against cosmic rays almost everywhere, so the limiting constraint on shelter is structural. The standing spans demand rock strengths within the range measured for jointed basalt. The measurement survives degradation of the surface model to orbital quality, so the workflow transfers to the catalogued skylights of Mars and the Moon.</p>
-        <p class="note">The surface model is an eBee X RTK photogrammetric survey flown on 28 August 2025 by the Natural Science Institute of Iceland. The interior map comes from the lidar-inertial reconstruction of the robot's own flight. The orbital transfer test degrades the surface model to the posting and vertical noise of HiRISE-, LROC- and CTX-class terrain models and repeats the whole computation.</p>
+        <p>A lava tube is the tunnel left behind when a basalt flow drains. On the Moon and Mars such tubes are the leading candidates for crewed shelters. A roof of a few metres of basalt cuts the cosmic-ray dose by orders of magnitude and flattens the swing between day and night. Orbital cameras have found hundreds of openings. A camera sees only the hole. It cannot tell how thick the roof is, what the void beneath looks like, or whether the roof will hold. On Earth the roof has been measured at a few transects with radar, never along a tube.</p>
+        <p>We flew a small autonomous aerial robot into Raufarhólshellir, a lava tube near Reykjavík, and let it map 300 metres of the closed section on its own. It carried a spinning lidar and an inertial unit, ran its own state estimator, exploration planner and mission supervisor, and received one command: start. The map it returned is registered to a photogrammetric model of the ground above through the three skylights that both data sets see. Subtracting the ceiling from the surface gives the rock cover at every metre along the tube. It is close to zero at the collapses, 14 metres under the road at the far end and 6 metres in the median.</p>
+        <p>Two results follow. The cover shields against cosmic rays almost everywhere, so what limits a shelter is whether the roof stands, and the spans that stand here demand rock strengths inside the range measured for jointed basalt. And the measurement survives when the surface model is degraded to the quality of orbital terrain models, so the same workflow would work at a Martian or lunar skylight with an orbiter's map and a robot's flight.</p>
+        <p class="note">The flights took place in April 2025. The surface model is an eBee X RTK photogrammetric survey that Birgir V. Óskarsson of the Natural Science Institute of Iceland flew on 28 August 2025. In September 2026 he went back and measured the roof at the skylight rims with a tape; the section <a href="#groundtruth">Checked on site</a> compares his numbers with ours.</p>
       </div>
     </div>
   </section>
@@ -88,7 +92,7 @@
   <section class="section" id="video" aria-labelledby="video-h">
     <div class="wrap">
       <div class="section-head"><span class="num">02</span><h2 id="video-h">Supplementary video</h2></div>
-      <p class="measure lede">The flight from launch to the deepest station, the map growing onboard, and the registration through the skylights.</p>
+      <p class="measure lede">The flight from launch to the deepest station, with the map growing onboard and the planner choosing where to look next. The file will be added when the cut is final.</p>
       <div class="video-frame">
         <div class="video-placeholder">
           <div class="card">
@@ -115,7 +119,7 @@
   <section class="section" id="figures" aria-labelledby="figures-h">
     <div class="wrap">
       <div class="section-head"><span class="num">03</span><h2 id="figures-h">Figures</h2></div>
-      <p class="measure note">Click a figure to open it at full size. Legends follow the manuscript.</p>
+      <p class="measure note">Click a figure to open it at full size. The legends are those of the manuscript.</p>
 
       <figure class="figure" id="fig1">
         <a class="frame" href="assets/figures/fig1_anatomy_site.jpg" data-lightbox data-alt="Anatomy of a lava tube and the field site" data-caption="Figure 1 | Anatomy of a lava tube and the field site.">
@@ -215,10 +219,49 @@
     </div>
   </section>
 
+  <section class="section" id="groundtruth" aria-labelledby="groundtruth-h">
+    <div class="wrap">
+      <div class="section-head"><span class="num">04</span><h2 id="groundtruth-h">Checked on site</h2></div>
+      <div class="measure">
+        <p class="lede">On 15 September 2026, after the analysis was finished, Birgir Óskarsson went back to the tube with a tape. None of his numbers entered the analysis; they are the check.</p>
+        <p>At the north and south rim of the entrance and of each skylight he hung the tape from the ground surface to the underside of the roof lip, and at four of the openings from the rim down to the floor. The registered model gives the same quantities: the surface elevation minus the highest lidar returns just outside each rim, and minus the lowest returns beneath it. Over the seven rim points the lidar roof thickness differs from the tape by 0.1 m on average and by 0.33 m root mean square. The largest difference is 0.6 m. Between themselves, the three interior maps (the two flights and the onboard map) agree to about 0.1 m. The rim-to-floor heights agree to 0.4 m at S2 and S3 and to 1.1 m at S1. At the entrance the lidar floor lies 2 m below the tape value; what the tape was measured to there is being confirmed. His point coordinates, digitised on his own orthomosaic, fall on the surface model at our reprojection to 3 cm, which confirms the horizontal frame as well.</p>
+        <p>The paper quotes a systematic uncertainty of 1.5 m on the whole profile, set by the registration datum. The rim check bounds the datum error along the skylight reach at about 0.6 m. We keep the larger value because the check does not reach the deep interior, where the cover is thickest. He also counted the flow units on the west wall of each skylight, three, five and four, with the thickest units 1.4 to 2.8 m, and collected two rock samples. Their bulk density, once measured, replaces the 2,600 kg per cubic metre the shielding numbers assume.</p>
+      </div>
+
+      <figure class="figure" id="figgt">
+        <a class="frame" href="assets/figures/rim_groundtruth.png" data-lightbox data-alt="Tape measurements at the skylight rims against the registered model" data-caption="Tape measurements at the skylight rims against the registered model.">
+          <img src="assets/figures/rim_groundtruth.png" width="1800" height="620" alt="Tape measurements at the skylight rims against the registered model" loading="lazy">
+        </a>
+        <figcaption>
+          <span class="title">Ground truth<span class="sep">|</span>Tape against lidar at the seven rim points</span>
+          <p><b>a</b>, Roof thickness at the rim: the tape value (black bar; dotted grey, the thicker terrace behind the lip where one exists) against the registered lidar for the offline map, the second flight and the onboard map, and the pipeline overburden at the three nearest intact stations. <b>b</b>, Height from the rim to the floor by tape and from the lidar floor of the two flights. The same panels appear as Extended Data Fig. 5g, h.</p>
+        </figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Rim point</th><th scope="col">Tape, lip (m)</th><th scope="col">Tape, terrace (m)</th><th scope="col">Lidar, offline (m)</th><th scope="col">Lidar, flight 2 (m)</th><th scope="col">Lidar, onboard (m)</th><th scope="col">Pipeline, flanking stations (m)</th><th scope="col">Rim to floor, tape (m)</th><th scope="col">Rim to floor, lidar (m)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Entrance</td><td>1.70</td><td>2.40</td><td>1.9</td><td>1.6</td><td>2.0</td><td>2.0</td><td>4.10</td><td>6.1</td></tr>
+            <tr><td>S1 south</td><td>1.90</td><td></td><td>1.8</td><td>1.6</td><td>1.7</td><td>1.5</td><td></td><td>8.8</td></tr>
+            <tr><td>S1 north</td><td>2.20</td><td></td><td>1.7</td><td>1.8</td><td>1.7</td><td>1.3</td><td>7.30</td><td>8.4</td></tr>
+            <tr><td>S2 south</td><td>2.00</td><td></td><td>1.4</td><td>1.4</td><td>1.6</td><td>0.1</td><td></td><td>9.3</td></tr>
+            <tr><td>S2 north</td><td>0.90</td><td></td><td>0.9</td><td>1.0</td><td>1.0</td><td>0.6</td><td>9.80</td><td>10.1</td></tr>
+            <tr><td>S3 south</td><td>1.35</td><td>2.50</td><td>1.6</td><td>1.8</td><td>1.7</td><td>1.0</td><td></td><td>7.7</td></tr>
+            <tr><td>S3 north</td><td>2.20</td><td>3.20</td><td>2.1</td><td>2.2</td><td>2.2</td><td>2.1</td><td>7.80</td><td>8.2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="margin-top:1rem">Lip: the uppermost roof terrace, surface to underside. Terrace: the thicker terrace behind the lip, read by eye. Lidar: surface elevation minus the highest interior returns in a strip 0.5 to 3.5 m outward from the rim point. Flanking stations: the paper's overburden at the three nearest retained stations. Rim to floor, lidar: surface minus the lowest returns within 3 m of the point, offline map, April 2025. Flow units on the west walls: S1 three (lowest 2.83 m), S2 five (lowest about 1.4 m), S3 four (middle two 1.8 and 2.0 m). Comparison script and files: <a href="https://github.com/aakapatel/lava-pcd/blob/main/analysis/skylight_groundtruth.py">skylight_groundtruth.py</a>, <a href="https://github.com/aakapatel/lava-pcd/tree/main/analysis_out_v9/groundtruth_2026-09-15">field CSV and notes</a>, <a href="https://github.com/aakapatel/lava-pcd/blob/main/analysis_out_v9/skylight_groundtruth.json">results JSON</a>.</p>
+    </div>
+  </section>
+
   <section class="section" id="data" aria-labelledby="data-h">
     <div class="wrap">
-      <div class="section-head"><span class="num">04</span><h2 id="data-h">Data and code</h2></div>
-      <p class="measure lede">Every figure and every number in the paper is produced by the analysis code from the files below. All files are on the <a href="https://github.com/aakapatel/lavatube-survey/releases/tag/data-v1">data-v1 release</a> of this site's repository, with <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/DATA_README.md">a README</a> on coordinate frames and licences and <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/SHA256SUMS.txt">SHA-256 checksums</a>. The same files are archived at Zenodo, <a href="https://doi.org/10.5281/zenodo.22710161">doi:10.5281/zenodo.22710161</a> (the DOI resolves once the record is published). Data licence CC BY 4.0.</p>
+      <div class="section-head"><span class="num">05</span><h2 id="data-h">Data and code</h2></div>
+      <p class="measure lede">The analysis code produces every figure and every number in the paper from the files below. All files are on the <a href="https://github.com/aakapatel/lavatube-survey/releases/tag/data-v1">data-v1 release</a> of this site's repository, with <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/DATA_README.md">a README</a> on coordinate frames and licences and <a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/SHA256SUMS.txt">SHA-256 checksums</a>. The same files are archived at Zenodo, <a href="https://doi.org/10.5281/zenodo.22710161">doi:10.5281/zenodo.22710161</a>. Data licence CC BY 4.0.</p>
       <div class="table-wrap">
         <table>
           <thead>
@@ -256,8 +299,14 @@
               <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/analysis_outputs_baseline_and_ed.zip">analysis_outputs_baseline_and_ed.zip (15 MB)</a></td>
             </tr>
             <tr>
+              <td>Ground truth at the rims</td>
+              <td>The tape measurements of 15 September 2026 at seven rim points (field CSV and notes, B. V. Óskarsson), the script that compares them with the registered model, and its outputs per point.</td>
+              <td class="fmt">CSV, JSON, Python</td>
+              <td><a href="https://github.com/aakapatel/lava-pcd/tree/main/analysis_out_v9/groundtruth_2026-09-15">field CSV and notes</a> · <a href="https://github.com/aakapatel/lava-pcd/blob/main/analysis_out_v9/skylight_groundtruth.json">comparison (JSON)</a> · <a href="https://github.com/aakapatel/lava-pcd/blob/main/analysis/skylight_groundtruth.py">script</a></td>
+            </tr>
+            <tr>
               <td>Figures</td>
-              <td>The five main figures and ten Extended Data items as PDF and PNG, as generated by the code.</td>
+              <td>The five main figures and ten Extended Data items as PDF and PNG, as the code generates them. Extended Data Fig. 5 gained the rim panels on 17 September 2026; the current file is in the analysis repository.</td>
               <td class="fmt">PDF, PNG</td>
               <td><a href="https://github.com/aakapatel/lavatube-survey/releases/download/data-v1/figures_nature_v10.zip">figures_nature_v10.zip (68 MB)</a></td>
             </tr>
@@ -281,8 +330,8 @@
 
   <section class="section" id="publications" aria-labelledby="pubs-h">
     <div class="wrap">
-      <div class="section-head"><span class="num">05</span><h2 id="pubs-h">Related publications</h2></div>
-      <p class="measure lede">The exploration planner flown in the tube and its ground-aerial extension.</p>
+      <div class="section-head"><span class="num">06</span><h2 id="pubs-h">Related publications</h2></div>
+      <p class="measure lede">The two papers that describe the planner the robot flew, and its extension to a ground and aerial pair.</p>
       <ol class="pubs">
         <li class="pub">
           <span class="title">STAGE: Scalable and Traversability-Aware Graph based Exploration Planner for Dynamically Varying Environments</span>
@@ -306,8 +355,8 @@
 
   <section class="section" id="cite" aria-labelledby="cite-h">
     <div class="wrap">
-      <div class="section-head"><span class="num">06</span><h2 id="cite-h">Cite</h2></div>
-      <p class="measure note">The entry below is a placeholder until the paper is published. It will be replaced with the final reference and DOI.</p>
+      <div class="section-head"><span class="num">07</span><h2 id="cite-h">Cite</h2></div>
+      <p class="measure note">The entry below stands in until the paper is published; the final reference and DOI replace it then.</p>
       <div class="cite-box">
 <pre id="bibtex">@unpublished{patel2026lavatube,
   author = {Patel, Akash and Stathoulopoulos, Nikolaos and Llewellin, Edward W. and {\'O}skarsson, Birgir V. and Nikolakopoulos, George},
@@ -325,32 +374,36 @@
 
   <section class="section" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
-      <div class="section-head"><span class="num">07</span><h2 id="contact-h">Team and contact</h2></div>
+      <div class="section-head"><span class="num">08</span><h2 id="contact-h">Team and contact</h2></div>
       <div class="team">
         <div class="person">
           <div class="name">Akash Patel</div>
-          <div class="role">Corresponding author</div>
+          <div class="role">Autonomy stack, field campaign, analysis. Corresponding author</div>
           <div class="aff">Robotics and Artificial Intelligence Group, Luleå University of Technology, Sweden</div>
           <div class="mail"><a href="mailto:akapat@ltu.se">akapat@ltu.se</a></div>
         </div>
         <div class="person">
           <div class="name">Nikolaos Stathoulopoulos</div>
+          <div class="role">Map merging through the skylights</div>
           <div class="aff">Robotics and Artificial Intelligence Group, Luleå University of Technology, Sweden</div>
         </div>
         <div class="person">
           <div class="name">Edward W. Llewellin</div>
+          <div class="role">Volcanology, roof analysis, final registration</div>
           <div class="aff">Department of Earth Sciences, Durham University, United Kingdom</div>
         </div>
         <div class="person">
           <div class="name">Birgir V. Óskarsson</div>
+          <div class="role">Surface survey, rim measurements, site geology</div>
           <div class="aff">Natural Science Institute of Iceland, Garðabær, Iceland</div>
         </div>
         <div class="person">
           <div class="name">George Nikolakopoulos</div>
+          <div class="role">Supervision</div>
           <div class="aff">Robotics and Artificial Intelligence Group, Luleå University of Technology, Sweden</div>
         </div>
       </div>
-      <p class="note" style="margin-top:1.5rem">Questions about the data, the code or the field campaign: write to the corresponding author.</p>
+      <p class="note" style="margin-top:1.5rem">Questions about the data, the code or the field campaign go to the corresponding author.</p>
     </div>
   </section>
 
