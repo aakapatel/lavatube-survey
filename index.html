@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Autonomous interior survey of a lava tube for planetary habitat assessment</title>
-  <meta name="description" content="An autonomous aerial robot mapped 300 m of the closed section of Raufarhólshellir, Iceland, in one flight and measured the rock cover above the tube at every metre. Tape measurements at the skylight rims agree with the lidar to 0.3 m. Summary, figures, ground truth, data and code.">
+  <meta name="description" content="An autonomous aerial robot explored and mapped 300 m of the closed section of Raufarhólshellir, Iceland, after a single start command. Registered to the surface through three skylights, the map gives the cavity geometry and the rock cover at every metre, and a test with degraded surface models shows where the workflow transfers to the Moon and Mars.">
   <meta name="author" content="Akash Patel, Nikolaos Stathoulopoulos, Edward W. Llewellin, Birgir V. Óskarsson, George Nikolakopoulos">
   <meta property="og:title" content="Autonomous interior survey of a lava tube for planetary habitat assessment">
-  <meta property="og:description" content="300 m of a lava tube mapped in one autonomous flight, a roof-thickness profile at every metre, and a tape check at the rims that agrees to 0.3 m.">
+  <meta property="og:description" content="An end-to-end autonomous survey of a lava tube: exploration without positioning or piloting, registration to the surface through skylights, and physical measurements from the combined model.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/figures/fig3_merged_model.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,7 +69,7 @@
       <div class="fact"><div class="num">300 m</div><div class="lbl">of the closed section of Raufarhólshellir mapped in one autonomous flight</div></div>
       <div class="fact"><div class="num">0</div><div class="lbl">commands after launch, and no positioning infrastructure in the tube</div></div>
       <div class="fact"><div class="num">3</div><div class="lbl">skylights anchor the interior map to an independent surface model</div></div>
-      <div class="fact"><div class="num">1 m</div><div class="lbl">spacing of the rock-cover profile along the tube</div></div>
+      <div class="fact"><div class="num">0.4 m</div><div class="lbl">agreement between two independent flights on the interior ceiling</div></div>
       <div class="fact"><div class="num">14 m</div><div class="lbl">thickest cover measured, under the road at the far end of the survey</div></div>
       <div class="fact"><div class="num">0.3 m</div><div class="lbl">agreement between the lidar roof thickness and a tape at seven skylight rims</div></div>
       <div class="fact"><div class="num">2 to 14 m</div><div class="lbl">of rock cover along the surveyed reach</div></div>
@@ -81,9 +81,9 @@
     <div class="wrap">
       <div class="section-head"><span class="num">01</span><h2 id="summary-h">Summary</h2></div>
       <div class="measure">
-        <p>A lava tube is the tunnel left behind when a basalt flow drains. On the Moon and Mars such tubes are the leading candidates for crewed shelters. A roof of a few metres of basalt cuts the cosmic-ray dose by orders of magnitude and flattens the swing between day and night. Orbital cameras have found hundreds of openings. A camera sees only the hole. It cannot tell how thick the roof is, what the void beneath looks like, or whether the roof will hold. On Earth the roof has been measured at a few transects with radar, never along a tube.</p>
-        <p>We flew a small autonomous aerial robot into Raufarhólshellir, a lava tube near Reykjavík, and let it map 300 metres of the closed section on its own. It carried a spinning lidar and an inertial unit, ran its own state estimator, exploration planner and mission supervisor, and received one command: start. The map it returned is registered to a photogrammetric model of the ground above through the three skylights that both data sets see. Subtracting the ceiling from the surface gives the rock cover at every metre along the tube. It is close to zero at the collapses, 14 metres under the road at the far end and 6 metres in the median.</p>
-        <p>Two results follow. The cover shields against cosmic rays almost everywhere, so what limits a shelter is whether the roof stands, and the spans that stand here demand rock strengths inside the range measured for jointed basalt. And the measurement survives when the surface model is degraded to the quality of orbital terrain models, so the same workflow would work at a Martian or lunar skylight with an orbiter's map and a robot's flight.</p>
+        <p>Lava tubes are caves left behind when the molten interior of a lava flow drains out. On the Moon and Mars they are targets for exploration because rock cover attenuates cosmic radiation, subsurface temperatures vary less than those at the surface, and caves can preserve geological and possibly biological records. Orbital observations have identified many candidate entrances, but a skylight identifies an access point and shows nothing of the cavity beyond it, the thickness of material above it, or whether the route through the interior is intact. Direct investigation will therefore require robotic systems that can survey an unknown subsurface environment without external positioning, reliable communication or a prior map.</p>
+        <p>We tested that complete workflow in Raufarhólshellir, a 1,360 m basaltic lava tube in southwest Iceland. Following a single start command, an aerial robot explored and mapped approximately 300 m of the closed section using onboard lidar-inertial state estimation, mapping, planning and supervision, with no external positioning and no pilot input. Two independent flights reproduced the interior geometry to 0.4 m root mean square. Three natural skylights, visible in both the interior lidar and an independently acquired photogrammetric model of the surface, were then used to register the interior reconstruction to the ground above, without markers or surveyed control inside the cave.</p>
+        <p>The registered model gives the cavity dimensions and the overburden, the vertical distance between the mapped ceiling and the ground surface, at every metre along the tube: close to zero at the collapses, 12 to 14 m over the final 50 m, 6.0 m in the median. These are the quantities that shielding and roof-stability assessments require, and we carry them through to areal shielding mass and to the rock strength that each standing span demands. Repeating the analysis with the surface model degraded to the quality of orbital stereo topography shows that the workflow holds at HiRISE-like and LROC-like resolution and is not reliable at CTX-like resolution.</p>
         <p class="note">The flights took place in April 2025. The surface model is an eBee X RTK photogrammetric survey that Birgir V. Óskarsson of the Natural Science Institute of Iceland flew on 28 August 2025. In September 2026 he went back and measured the roof at the skylight rims with a tape; the section <a href="#groundtruth">Checked on site</a> compares his numbers with ours.</p>
       </div>
     </div>
@@ -122,42 +122,42 @@
       <p class="measure note">Click a figure to open it at full size. The legends are those of the manuscript.</p>
 
       <figure class="figure" id="fig1">
-        <a class="frame" href="assets/figures/fig1_anatomy_site.jpg" data-lightbox data-alt="Anatomy of a lava tube and the field site" data-caption="Figure 1 | Anatomy of a lava tube and the field site.">
-          <img src="assets/figures/fig1_anatomy_site.jpg" width="1800" height="1100" alt="Anatomy of a lava tube and the field site" loading="lazy">
+        <a class="frame" href="assets/figures/fig1_anatomy_site.jpg" data-lightbox data-alt="Field setting and autonomous survey system" data-caption="Figure 1 | Field setting and autonomous survey system.">
+          <img src="assets/figures/fig1_anatomy_site.jpg" width="1800" height="1371" alt="Anatomy of a lava tube and the field site" loading="lazy">
         </a>
         <figcaption>
-          <span class="title">Figure 1<span class="sep">|</span>Anatomy of a lava tube and the field site</span>
-          <p><b>a</b>, Long section and cross-section of a basaltic lava tube: a roof of stacked flow units under soil encloses the drained conduit; where the roof has failed a skylight opens to the surface and breakdown blocks pile on the floor. The overburden <i>τ</i> is the vertical separation between the surface and the highest interior ceiling; <i>L</i> is the conduit span. An orbiter resolves only the skylight aperture; the skylight rim is the one feature seen both from above and from within, and is the registration anchor between the two data sets. <b>b</b>, Raufarhólshellir, southwest Iceland (inset): the surveyed reach of the tube (centreline, white) under the August 2025 orthomosaic, with the entrance, the three skylights S1 to S3 and the road that crosses the tube at the far end of the survey; the dashed line continues the tube along the 1970 map sheet beyond the surveyed reach.</p>
+          <span class="title">Figure 1<span class="sep">|</span>Field setting and autonomous survey system</span>
+          <p><b>a</b>, Schematic long section through a lava tube that illustrates the observational problem: surface observations can identify skylights and other openings, but do not reveal the geometry of the cavity beyond them or the thickness of the material above it. <b>b</b>, Location and plan view of Raufarhólshellir, southwest Iceland, showing the surveyed section, the entrance and the three skylights on the August 2025 orthomosaic; the dashed line continues the tube along the 1970 map sheet beyond the surveyed reach, and the tube extends for approximately 1,360 m. <b>c</b>, The aerial robot (dashed box) in flight in a chamber beneath a skylight, where wind-blown snow forms a cone on the floor. <b>d</b>, Two views of the closed section, a dark constriction and a breakdown chamber, showing the range of conduit geometries encountered during autonomous exploration.</p>
         </figcaption>
       </figure>
 
       <figure class="figure" id="fig2">
-        <a class="frame" href="assets/figures/fig2_survey.jpg" data-lightbox data-alt="Autonomous survey of Raufarhólshellir" data-caption="Figure 2 | Autonomous survey of Raufarhólshellir.">
+        <a class="frame" href="assets/figures/fig2_survey.jpg" data-lightbox data-alt="Autonomous exploration and repeatability of the interior survey" data-caption="Figure 2 | Autonomous exploration and repeatability of the interior survey.">
           <img src="assets/figures/fig2_survey.jpg" width="1800" height="1600" alt="Autonomous survey of Raufarhólshellir" loading="lazy">
         </a>
         <figcaption>
-          <span class="title">Figure 2<span class="sep">|</span>Autonomous survey of Raufarhólshellir</span>
-          <p><b>a</b>, The aerial robot (dashed boxes) in the daylit chamber beneath a skylight, where wind-blown snow forms a cone, and in a dark constriction of the closed section. <b>b</b>, The lidar-inertial reconstruction of one mission at an early and at the final stage, coloured by height. <b>c</b>, The rolling global graph (light nodes and edges) over the reconstruction, with the validated route from the robot to the nearest skylight drawn in red; each skylight is held as a persistent frontier that doubles as an exit.</p>
+          <span class="title">Figure 2<span class="sep">|</span>Autonomous exploration and repeatability of the interior survey</span>
+          <p><b>a</b>, The onboard lidar map early and later in the principal autonomous mission, in the same frame, with the flown trajectory drawn through the reconstructed conduit. <b>b</b>, Autonomous exploration within the partially mapped environment: the executed trajectory (purple), candidate viewpoints sampled in verified free space (magenta) and the subset with the highest expected gain (boxed). <b>c</b>, Plan view of the final reconstruction of the principal mission, coloured by elevation; the robot flew 298 m and reached 235 m from the launch point, and lidar observations extend the mapped conduit to 301 m. <b>d</b>, Difference in mapped ceiling elevation between the onboard map and the higher-resolution offline reconstruction of the same flight, as mean and standard deviation over successive 80 m sections of the conduit.</p>
         </figcaption>
       </figure>
 
       <figure class="figure" id="fig3">
-        <a class="frame" href="assets/figures/fig3_merged_model.jpg" data-lightbox data-alt="The registered surface-subsurface model of Raufarhólshellir" data-caption="Figure 3 | The registered surface-subsurface model of Raufarhólshellir.">
+        <a class="frame" href="assets/figures/fig3_merged_model.jpg" data-lightbox data-alt="Registration of the autonomous interior survey to the surface" data-caption="Figure 3 | Registration of the autonomous interior survey to the surface.">
           <img src="assets/figures/fig3_merged_model.jpg" width="1800" height="1700" alt="The registered surface-subsurface model of Raufarhólshellir" loading="lazy">
         </a>
         <figcaption>
-          <span class="title">Figure 3<span class="sep">|</span>The registered surface-subsurface model of Raufarhólshellir</span>
-          <p><b>a</b>, The photogrammetric surface (true colour) with a swath 8 m either side of the centreline removed along the conduit to expose the interior lidar reconstruction, coloured by depth beneath the surface; the road at the left gives scale. <b>b</b>, Plan view: overburden per 1 m cell over the shaded relief, with the centreline (white), arc-length marks every 50 m, the skylights S1 to S3 (orange; white cells inside the openings, where the surface model has no return) and the stations excluded from the statistics (blue-grey). <b>c</b>, Long section along the centreline: surface, interior ceiling and floor, with the cover coloured by <i>τ</i> where retained and grey where excluded; vertical exaggeration 3×. <b>d</b>, Transverse slice at <i>s</i> = 281 m: the surface skin and the interior lidar section at the same horizontal position, with the intervening slab dimensioned.</p>
+          <span class="title">Figure 3<span class="sep">|</span>Registration of the autonomous interior survey to the surface</span>
+          <p><b>a</b>, Plan view of the three skylights as detected in the surface photogrammetric model (orange ellipses) and the interior rim centroids after registration (blue crosses); the inset shows a fourth candidate detection that the matching rule rejected. <b>b</b>, Oblique view of the registered surface and interior datasets, with the interior coloured by overburden, the three skylights ringed and along-tube stations marked at 100, 200 and 300 m. <b>c</b>, Independent repeatability test: the difference in mapped ceiling elevation between the two long autonomous flights at each one-metre station, after each interior reconstruction was registered independently to the surface; the line marks the median and the band the root mean square. <b>d</b>, Long section along the centreline of the registered model: the ground surface, the conduit void and the roof coloured by overburden, with the three skylights marked.</p>
         </figcaption>
       </figure>
 
       <figure class="figure" id="fig4">
-        <a class="frame" href="assets/figures/fig4_geometry_cover.png" data-lightbox data-alt="Geometry and rock cover along the surveyed tube" data-caption="Figure 4 | Geometry and rock cover along the surveyed tube.">
+        <a class="frame" href="assets/figures/fig4_geometry_cover.png" data-lightbox data-alt="Geometric and physical measurements derived from the autonomous survey" data-caption="Figure 4 | Geometric and physical measurements derived from the autonomous survey.">
           <img src="assets/figures/fig4_geometry_cover.png" width="1800" height="1700" alt="Geometry and rock cover along the surveyed tube" loading="lazy">
         </a>
         <figcaption>
-          <span class="title">Figure 4<span class="sep">|</span>Geometry and rock cover along the surveyed tube</span>
-          <p><b>a</b>, Plan of the centreline with the skylights and ticks every 50 m. <b>b</b>, Cross-section area, width and height against along-tube distance; orange bands mark the skylights. <b>c</b>, Overburden <i>τ</i> against along-tube distance; the shaded band is the systematic registration-datum uncertainty of ±1.5 m common to all stations, and grey ticks mark stations excluded by the consistency screen. <b>d</b>, Centreline elevation. <b>e</b>, Distribution of <i>τ</i> over the 276 retained stations (vertical line, median), with the areal shielding mass at 2,600 kg m<sup>-3</sup> on the upper axis; the two modes are the skylight reach and the far reach. <b>f</b>, Overburden against local span <i>L</i> for intact roof (green) and the failed spans at the skylights (orange), with the minimum thickness required under the clamped-strip model at rock-mass tensile strengths <i>σ</i><sub>t</sub> of 0.5, 1 and 2.5 MPa (black curves).</p>
+          <span class="title">Figure 4<span class="sep">|</span>Geometric and physical measurements derived from the autonomous survey</span>
+          <p><b>a</b>, Plan view of the extracted cavity centreline, with one-metre measurement stations and the entrance and three skylights marked. <b>b</b>, Cross-sectional area, width and height along the surveyed reach. <b>c</b>, Overburden, defined as the vertical distance between the mapped ceiling and the independently surveyed ground surface. The shaded band shows the ±1.5 m systematic registration uncertainty; stations excluded by the geometric consistency screen are indicated separately. <b>d</b>, Distribution of overburden for the 276 retained stations, with the corresponding areal shielding mass calculated for a bulk density of 2,600 kg m<sup>-3</sup>. <b>e</b>, Overburden against local cavity span for intact sections and skylight collapses. Curves show the thickness required by the clamped-strip model for rock-mass tensile strengths of 0.5, 1 and 2.5 MPa.</p>
         </figcaption>
       </figure>
 
@@ -186,7 +186,7 @@
             <div class="thumb"><img src="assets/figures/ed3_planner_behaviour_thumb.jpg" alt="Extended Data Figure 3: exploration behaviour of the planner inside the conduit" loading="lazy"></div>
             <div class="cap"><span class="id">Extended Data Fig. 3</span>Exploration behaviour of the planner inside the conduit</div>
           </a>
-          <a class="ed-item" href="assets/figures/ed5_registration_consistency.png" data-lightbox data-alt="Extended Data Figure 4: registration validation and the map consistency screen" data-caption="Extended Data Fig. 4 | Registration validation and the map consistency screen.">
+          <a class="ed-item" href="assets/figures/ed5_registration_consistency.jpg" data-lightbox data-alt="Extended Data Figure 4: registration validation and the map consistency screen" data-caption="Extended Data Fig. 4 | Registration validation and the map consistency screen.">
             <div class="thumb"><img src="assets/figures/ed5_registration_consistency_thumb.jpg" alt="Extended Data Figure 4: registration validation and the map consistency screen" loading="lazy"></div>
             <div class="cap"><span class="id">Extended Data Fig. 4</span>Registration validation and the map consistency screen</div>
           </a>
@@ -234,7 +234,7 @@
         </a>
         <figcaption>
           <span class="title">Ground truth<span class="sep">|</span>Tape against lidar at the seven rim points</span>
-          <p><b>a</b>, Roof thickness at the rim: the tape value (black bar; dotted grey, the thicker terrace behind the lip where one exists) against the registered lidar for the offline map, the second flight and the onboard map, and the pipeline overburden at the three nearest intact stations. <b>b</b>, Height from the rim to the floor by tape and from the lidar floor of the two flights. The same panels appear as Extended Data Fig. 4g, h.</p>
+          <p><b>a</b>, Roof thickness at the rim: the tape value (black bar; dotted grey, the thicker terrace behind the lip where one exists) against the registered lidar for the offline map, the second flight and the onboard map, and the pipeline overburden at the three nearest intact stations. <b>b</b>, Height from the rim to the floor by tape and from the lidar floor of the two flights. The same panels appear as Extended Data Fig. 4f, g.</p>
         </figcaption>
       </figure>
 
