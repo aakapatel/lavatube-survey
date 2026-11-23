@@ -1,0 +1,166 @@
+{
+ "main": [
+  {
+   "id": "fig1",
+   "label": "Figure 1",
+   "title": "Field setting and autonomous survey system",
+   "legend": "<b>a</b>, Schematic long section through a lava tube that illustrates the observational problem: surface observations can identify skylights and other openings, but do not reveal the geometry of the cavity beyond them or the thickness of the material above it; the entrance is at the left. <b>b</b>, Location and plan view of Raufarhólshellir, southwest Iceland, showing the surveyed section, the entrance and the three skylights on the August 2025 orthomosaic, oriented with the entrance at the left and the tube running left to right; the dashed line continues the tube along the 1970 map sheet beyond the surveyed reach, and the tube extends for approximately 1,360 m. <b>c</b>, The aerial robot (dashed box) in flight in a chamber beneath a skylight, where snow covers the debris pile left by the roof collapse that formed the skylight. <b>d</b>, A dark constriction in the closed section, with the robot lit by its own lamps. <b>e</b>, A breakdown chamber in the closed section, with the robot against the far wall. <b>d</b> and <b>e</b> show the range of cavity geometries encountered during autonomous exploration.",
+   "src": "figures/fig1.jpg",
+   "thumb": "figures/fig1_thumb.jpg",
+   "w": 1800,
+   "h": 1700
+  },
+  {
+   "id": "fig2",
+   "label": "Figure 2",
+   "title": "Survey workflow from onboard autonomy to the planetary transfer",
+   "legend": "The boxes are grouped into the four stages of the work: onboard autonomy in flight, the independent surface survey, offline reconstruction and map alignment, and the analysis along the centreline. Blue outlines mark interior lidar products, orange outlines the surface photogrammetry products, and green outlines the products that exist in one common frame; the dashed box lists the checks that were held out of the registration fit and the systematic uncertainty they support. Arrows follow the data: the recorded flight logs are reprocessed offline, both offline maps are aligned to the onboard map, the skylights detected in the interior and surface clouds give a closed-form initial alignment that the slice registration refines, and the composed transform places the interior maps of both flights and the surface model in one frame. The centreline, cross-section, overburden, roof-stability and planetary-transfer analyses follow from the registered model, and the registration uncertainty is carried into the overburden and stability results.",
+   "src": "figures/fig2.jpg",
+   "thumb": "figures/fig2_thumb.jpg",
+   "w": 1800,
+   "h": 1576
+  },
+  {
+   "id": "fig3",
+   "label": "Figure 3",
+   "title": "Autonomous exploration and repeatability of the interior survey",
+   "legend": "<b>a</b>, The onboard lidar map of the principal autonomous mission. Centre, the full map in plan view with the flown trajectory (green); above its right half, two detail views of the lava tube; left, two close-up views of the interior; right, the exploration graph at one planning step, with sampled vertices (red) joined by edges (blue), larger spheres (magenta) and the robot body frame. <b>b</b>, Plan view of the final reconstruction of the principal mission, coloured by elevation; the robot flew 298 m and reached 235 m from the launch point, and lidar observations extend the mapped lava tube to 301 m. <b>c</b>, Differences in mapped ceiling elevation at each one-metre station, both taken from the offline reconstruction of the first long flight. Blue, the onboard map minus the offline reconstruction of the same flight, with the mean (black line) and standard deviation (grey band) over successive 80 m sections of the lava tube. Orange, the second flight minus the offline reconstruction of the first (root mean square 0.37 m); the second flight was reconstructed separately and carried into the same registered frame by a map-to-map alignment to the onboard map of the first. Dashed lines mark the ±1.5 m systematic registration band from the overburden analysis. The dip near 195 m in both series reflects a sparse tail of stray returns above the roof in the offline reconstruction of the first flight at those stations, absent from the onboard map and from the second flight.",
+   "src": "figures/fig3.jpg",
+   "thumb": "figures/fig3_thumb.jpg",
+   "w": 1800,
+   "h": 1700
+  },
+  {
+   "id": "fig4",
+   "label": "Figure 4",
+   "title": "The registered model: overburden in plan view, long section and overburden profile",
+   "legend": "<b>a</b>, Overburden per 0.1 m cell over the registered model in plan view, on the true-colour orthomosaic of the surface, with the centreline, 50 m stations and the three skylights marked; cells excluded by the consistency screen are coloured separately. The skylight detection that establishes the registration is shown in Extended Data Fig. 4a, and the final transformation in Extended Data Fig. 4c. <b>b</b>, Long section along the centreline of the registered model: the ground surface, the cavity and the roof coloured by overburden, with the three skylights marked. <b>c</b>, Overburden, defined as the vertical distance between the mapped ceiling and the independently surveyed ground surface, at the 276 retained stations. The green band shows the ±1.5 m systematic registration uncertainty and the grey ticks below zero mark stations excluded by the geometric consistency screen.",
+   "src": "figures/fig4.jpg",
+   "thumb": "figures/fig4_thumb.jpg",
+   "w": 1800,
+   "h": 1700
+  },
+  {
+   "id": "fig5",
+   "label": "Figure 5",
+   "title": "Transfer of the survey workflow to planetary conditions",
+   "legend": "<b>a</b>, Overburden along the tube for the 276 retained stations (green dots, with the ±1.5 m systematic band) and the 5th to 95th percentile range of 20 noise realisations after degrading the photogrammetric surface to HiRISE-like (blue), LROC-NAC-like (orange) and CTX-like (purple) postings and vertical uncertainties, with the registered interior map held fixed. The legend gives the root-mean-square overburden error of each configuration against the baseline; skylight reaches are shaded. <b>b</b>, Long axes of the 131 dimensioned Martian atypical pit craters (outer), 248 lunar impact-melt pits and 18 lunar mare and highland pits (inner), and the three Raufarhólshellir skylights; dots are single openings and black bars the row medians. Dashed lines mark a width of three postings, for postings of 1, 2, 5 and 20 m. The smallest skylight (S2, 2.8 m) is unresolved at every posting, only S1 and S3 are resolved at 1 m, only S3 at 2 m, and none at 5 m. <b>c</b>, Maximum stable span predicted by the clamped-strip model as a function of overburden on Earth, Mars and the Moon. Curves show a rock-mass tensile strength of 1 MPa and bands span 0.5–2.5 MPa. On each curve the thick segment is the interquartile range of the overburden measured here (3.2 to 9.0 m) and the dot its median (6.0 m), which at 1 MPa carries a span of 22 m on Earth, 35 m on Mars and 54 m on the Moon. The calculation shows the effect of gravity alone, not of differences in planetary rock properties.",
+   "src": "figures/fig5.jpg",
+   "thumb": "figures/fig5_thumb.jpg",
+   "w": 1800,
+   "h": 1590
+  }
+ ],
+ "extended": [
+  {
+   "id": "ed_fig1",
+   "label": "Extended Data Fig. 1",
+   "title": "The skylights and the interior of the closed section",
+   "legend": "<b>a</b>, The three skylights that breach the roof of Raufarhólshellir, each with a cone of wind-blown snow on the floor beneath the opening; the robot is visible against the daylight in the central panel. <b>b</b>, Interior surfaces of the closed section: breakdown blocks on the floor, the lined walls of the lava tube and the variable ceiling geometry. <b>c</b>, Onboard forward-facing camera views of a daylit section near a skylight (left) and of the dark closed interior (right); the autonomy loop uses lidar and inertial sensing only and does not use this imagery.",
+   "src": "figures/ed_fig1.jpg",
+   "thumb": "figures/ed_fig1_thumb.jpg",
+   "w": 1800,
+   "h": 2007
+  },
+  {
+   "id": "ed_fig2",
+   "label": "Extended Data Fig. 2",
+   "title": "The aerial robot and its mission supervisor",
+   "legend": "<b>a</b>, The quadrotor hovering inside the tube, with the Ouster three-dimensional lidar, the VectorNav IMU, the Intel NUC onboard computer, the Pixhawk Cube Orange flight controller, the lithium high-voltage battery and the first-person-view camera labelled. Rotor span about 0.8 m. The key beside the photograph gives the four node types used in <b>b</b>. <b>b</b>, The behaviour tree that supervises the mission, redrawn from the flown tree with the node names written as words. Children of a node execute from left to right; leaves stacked in one column execute from top to bottom. The root sequence first runs a health fallback (sensor and odometry checks, otherwise a planner-status update) and then a planner-status fallback that idles while a plan is executing and, when the planner is ready, enters the planner-mode selector. The selector chooses among waypoint navigation, autonomous exploration and return to home. Each planning branch runs its planner, checks plan validity and executes only on success, under a retry decorator. Within autonomous exploration a fallback descends from local exploration to global repositioning to homing. The platform configuration is listed in Extended Data Table 2.",
+   "src": "figures/ed_fig2.jpg",
+   "thumb": "figures/ed_fig2_thumb.jpg",
+   "w": 1800,
+   "h": 1687
+  },
+  {
+   "id": "ed_fig3",
+   "label": "Extended Data Fig. 3",
+   "title": "Exploration behaviour of the planner inside the lava tube",
+   "legend": "<b>a</b>, Pruning of frontiers that lead into inaccessible passages: an onboard view of a narrow side channel branching from the main void (top), and the local graph (green) built in the same section (bottom), in which the vertex that leads into the sub-clearance channel is excluded from gain evaluation. <b>b</b>, The rolling global graph in side and top view, stitched from successive local subgraphs through their overlap.",
+   "src": "figures/ed_fig3.jpg",
+   "thumb": "figures/ed_fig3_thumb.jpg",
+   "w": 1800,
+   "h": 643
+  },
+  {
+   "id": "ed_fig4",
+   "label": "Extended Data Fig. 4",
+   "title": "Registration of the interior survey to the surface",
+   "legend": "<b>a</b>, Plan view of the three skylights as detected in the surface photogrammetric model (orange ellipses) and the interior rim centroids after registration (blue crosses), drawn with north to the right; the inset shows a fourth candidate detection that the matching rule rejected. The overburden map built from this registration is Fig. 4a. <b>b</b>, Signed vertical offsets between the tube floor imaged through the largest skylight by the photogrammetry and the same floor mapped by the interior lidar; the dashed line marks the median. <b>c</b>, The interior ceiling along the tube under the centroid-matched solution and under the final slice-based registration, against the surface elevation. <b>d</b>, The per-station column statistic, the fraction of interior returns more than 1 m above the local surface, with the 5% screen threshold (dashed); the four stations inside the S1 aperture have no surface cell. <b>e</b>, Station classification in plan view: retained (green), skylight aperture (orange) and inconsistent (red). <b>f</b>, Roof thickness at the seven rim points measured by tape on 15 September 2026 (black bars; dotted grey, the thicker terrace behind the lip where one exists) against the registered lidar for the three interior maps and the pipeline overburden at the flanking stations. <b>g</b>, Rim-to-floor height from the lidar floor at all seven points and by tape at the four points where it was measured.",
+   "src": "figures/ed_fig4.jpg",
+   "thumb": "figures/ed_fig4_thumb.jpg",
+   "w": 1800,
+   "h": 1700
+  },
+  {
+   "id": "ed_fig5",
+   "label": "Extended Data Fig. 5",
+   "title": "Centreline extraction, cross-section geometry, sinuosity and aspect ratio",
+   "legend": "<b>a</b>, Plan view of the interior shell (grey, 30 cm working copy) with the extracted centreline (blue), the entrance at s=0 and the skylight stations (orange, labelled S1 to S3); ticks every 50 m of arc length. <b>b</b>, Side view of the shell and centreline. <b>c–h</b>, Cross-sections from the 10 cm map at 50 m intervals, plotted in the plane perpendicular to the local tangent. <b>i</b>, Sinuosity over 50 m windows. <b>j</b>, Aspect ratio \\eta from the section second moments.",
+   "src": "figures/ed_fig5.jpg",
+   "thumb": "figures/ed_fig5_thumb.jpg",
+   "w": 1800,
+   "h": 1700
+  },
+  {
+   "id": "ed_fig6",
+   "label": "Extended Data Fig. 6",
+   "title": "Cross-section geometry, overburden distribution and span",
+   "legend": "<b>a</b>, Cross-sectional area (upper strip) and width and height (lower strip) at one-metre stations along the tube; orange bands mark the skylight reaches. <b>b</b>, Distribution of overburden for the 276 retained stations, with the corresponding areal shielding mass calculated for a bulk density of 2,600 kg m<sup>-3</sup>; the two modes are the skylight reach and the far reach. <b>c</b>, Overburden against local cavity span for intact sections (green dots) and skylight collapses (orange triangles, at zero overburden). Curves show the span at which the clamped-strip model requires a rock-mass tensile strength of 0.5, 1 and 2.5 MPa, values within the range published for jointed basaltic rock masses, at the overburden on the horizontal axis; stations below a curve need less strength than that value.",
+   "src": "figures/ed_fig6.jpg",
+   "thumb": "figures/ed_fig6_thumb.jpg",
+   "w": 1800,
+   "h": 1700
+  },
+  {
+   "id": "ed_fig7",
+   "label": "Extended Data Fig. 7",
+   "title": "The lidar survey against the 1970 theodolite survey, and the road crossing",
+   "legend": "<b>a</b>, The 1970 plan (figure 3 of, scanned) fitted by shape over the lidar interior shell (grey) and centreline, with the road and the three skylights. <b>b</b>, The medial lines of the three older plans compared by the 1970 expedition (Munger 1954, the Cambridgeshire expedition of 1969, the 1970 survey), on the frame of the lidar centreline. The 1970 map sheet is placed through the entrance and the three collapses. The star marks the expedition's “point of greatest danger” beneath the road. <b>c</b>, Horizontal offset between each older survey and the lidar centreline against distance along the tube. The shaded band is the 2% of distance the 1970 survey claimed, and the tinted reach is where the tie points constrain the map-sheet fit. <b>d</b>, Passage width from the 1970 map sheet against the lidar width at the same stations. <b>e</b>, The road crossing: surface, interior ceiling and floor in 2.5 m cells for the three interior maps. The cells run from the last 50 m of the survey to the end of the interior returns beneath the embankment crest (grey band). The orange band is the 5.5 to 12 m from cave roof to road surface reported in 1970 at a point about 90 m beyond the last return along the extended tube axis. Open circles mark cells with fewer than 30 returns and crosses cells whose roof was not sampled.",
+   "src": "figures/ed_fig7.jpg",
+   "thumb": "figures/ed_fig7_thumb.jpg",
+   "w": 1800,
+   "h": 1700
+  },
+  {
+   "id": "ed_fig8",
+   "label": "Extended Data Fig. 8",
+   "title": "Surface model validation and orbital transfer test",
+   "legend": "<b>a</b>, The photogrammetric surface minus the ArcticDEM mosaic (2 m) over the survey footprint, after removal of the constant datum offset. <b>b</b>, The difference distribution, with its standard deviation, quadratic doming amplitude and tilt. <b>c</b>, The overburden profile recomputed with the surface degraded to HiRISE-class (1 m posting, 0.3 m correlated noise) and LROC-class (5 m, 1 m) terrain-model quality, single realisations against the baseline and its systematic band.",
+   "src": "figures/ed_fig8.jpg",
+   "thumb": "figures/ed_fig8_thumb.jpg",
+   "w": 1800,
+   "h": 1465
+  },
+  {
+   "id": "ed_fig9",
+   "label": "Extended Data Fig. 9",
+   "title": "Rockfall inspection missions with the same autonomy stack in an operating underground mine",
+   "legend": "<b>a</b>, Progression of one autonomous inspection: navigation to the boundary of the known map along a validated path, switch to exploration and advance toward the damaged heading, exploration and mapping over and beyond the debris. <b>b</b>, Third-person view at a rockfall site with the exploration graph below it: vertices concentrate near the damaged roof and high-gain vertical viewpoints are selected. <b>c</b>, Inspection of a damaged roof and debris pile with the altitude trace showing the vertical excursions. <b>d</b>, Inspection of a drift with hanging rock, pipes and mesh, where the graph is sparsified in clutter. All flights were autonomous after a single start command; a safety pilot stood by and did not intervene (Supplementary Text 1).",
+   "src": "figures/ed_fig9.jpg",
+   "thumb": "figures/ed_fig9_thumb.jpg",
+   "w": 1800,
+   "h": 1670
+  },
+  {
+   "id": "ed_table1",
+   "label": "Extended Data Table 1",
+   "title": "Mission summary of the two long autonomous flights",
+   "legend": "Metrics computed from the recorded onboard logs (odometry, planner and behaviour-tree topics) of the two long missions of the second field day. Four shorter flights on the first day covered the entrance and skylight sections. Flight 1 is the mission analysed in the paper; flight 2 provides the independent repeat of the interior ceiling.",
+   "src": "figures/ed_table1.jpg",
+   "thumb": "figures/ed_table1_thumb.jpg",
+   "w": 1800,
+   "h": 414
+  },
+  {
+   "id": "ed_table2",
+   "label": "Extended Data Table 2",
+   "title": "Platform configuration and planner parameters of the Iceland deployment",
+   "legend": "Top, the aerial platform, its autonomy stack and the surface photogrammetric survey. Bottom, planner and safety values as configured onboard for the flights reported here; symbols follow Supplementary Methods 1.",
+   "src": "figures/ed_table2.jpg",
+   "thumb": "figures/ed_table2_thumb.jpg",
+   "w": 1800,
+   "h": 1386
+  }
+ ]
+}

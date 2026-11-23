@@ -1,83 +1,99 @@
 # Project website: Autonomous interior survey of a lava tube
 
-Static project page for the manuscript "Autonomous interior survey of a lava tube
-for planetary habitat assessment" (Patel, Stathoulopoulos, Llewellin, Óskarsson,
-Nikolakopoulos; manuscript under review, 2026).
+Page for the manuscript "Autonomous interior survey of a lava tube for planetary
+habitat assessment" (Patel, Stathoulopoulos, Valdes Saucedo, Llewellin,
+Óskarsson, Nikolakopoulos; under review, 2026). Published at
+https://aakapatel.github.io/lavatube-survey/, the address the manuscript cites.
 
-The site is plain HTML, CSS and a small script. There is no build step. It works
-when `index.html` is opened from disk and on GitHub Pages at a repository subpath,
-because every asset path is relative.
+The top of the page is an interactive 3D module in three.js. It places the
+paper's workflow on Mars as a concept: an orbiter builds a surface model, a
+rotorcraft descends a skylight and maps the tube, the two maps are registered
+through the skylights, and the rock cover is computed. The tube, the lidar map
+and the ground relief in it are the survey of Raufarhólshellir. The section
+"What the animation shows" on the page lists what is measured and what is added.
+
+## Run it
+
+Node 18 or newer.
+
+```
+npm install
+npm run dev        # http://127.0.0.1:5183
+npm run build      # type check, then static files in dist/
+npm run preview
+```
+
+The build uses relative paths, so `dist/` works from any subpath.
 
 ## Layout
 
 ```
-index.html              the page
-assets/css/style.css    stylesheet
-assets/js/main.js       nav highlight, figure lightbox, copy-BibTeX button
-assets/figures/         web copies of the five main figures, the ten
-                        Extended Data items and the rim ground-truth figure
-                        (max 1800 px wide, each under 700 KB)
-.nojekyll               tells GitHub Pages to serve the files as they are
-LICENSE                 CC BY 4.0 for the site content
+index.html              page text; figures and legends are filled in by src/ui/page.ts
+src/main.ts             boot: page, then the 3D module, poster if WebGL is missing
+src/styles.css          the stylesheet
+src/hero/               the 3D module (engine.ts lists the parts)
+src/ui/hero.ts          chapter bar, readouts, overburden chart and switches, scene labels
+src/ui/page.ts          figures, figure viewer, citation button, optional video
+src/content/figures.json   legends, written by tools/build_content.py
+public/hero/            3D assets, written by tools/build_data.py and tools/models.py
+public/figures/         web copies of the manuscript figures
+tools/                  the scripts that make the assets, and screenshot helpers
 ```
 
-## Enable GitHub Pages
+## Rebuilding the assets
 
-1. Push this directory to a repository (as the root, or copy its contents into
-   the repository root).
-2. In the repository: Settings > Pages > Build and deployment > Source:
-   "Deploy from a branch", Branch: `main`, Folder: `/ (root)`. Save.
-3. The page appears at `https://<user>.github.io/<repo>/` within a few minutes.
+All assets are generated; none is edited by hand.
 
-`.nojekyll` must stay in the root so Pages does not run Jekyll over the files.
+| Script | Reads | Writes |
+|---|---|---|
+| `tools/build_data.py` | `../lavatube_maps_data_analysis` (maps and `analysis_out_v9`) | terrain heights and texture, tube mesh, lidar cloud, `meta.json` |
+| `tools/models.py` (Blender 4.5) | nothing | `orbiter.glb`, `rotorcraft.glb`, `lander.glb` |
+| `tools/fetch_mars.py` | NASA Mars Trek tile service | `mars_strip_0.jpg` to `mars_strip_2.jpg` |
+| `tools/build_content.py` | the manuscript's `sections/` and `figures/` | `public/figures/`, `src/content/figures.json` |
 
-## Add the supplementary video
+```
+PY=../lavatube_maps_data_analysis/.venv/bin/python
+$PY tools/build_data.py                 # terrain, tube, cloud, meta (about four minutes)
+npx -y gltfpack@0.25.0 -i tools/.cache/tube_raw.glb -o public/hero/tube.glb -cc -vp 16 -vn 8 -vc 8 -kn
+npx -y gltfpack@0.25.0 -i tools/.cache/tube_hi_raw.glb -o public/hero/tube_hi.glb -cc -vp 16 -vn 8 -vc 8 -kn
+~/opt/blender-4.5.3-linux-x64/blender -b --factory-startup -P tools/models.py -- --out public/hero
+python3 tools/build_content.py          # after the manuscript figures or legends change
+```
 
-In `index.html`, section `id="video"`, delete the `<div class="video-placeholder">`
-block and uncomment one of the two commented examples that follow it:
+The tube is drawn from the map built on board during the first long flight
+(`tube_10cm_ed_ortho.pcd`). The offline map behind the paper's numbers agrees
+with it to 0.2 m at 99% of points but holds second copies of some walls, up
+to 3 m off, and a surface fitted to it has rock inside the void. The flight
+is planned through the free space of that map and simulated; delete
+`tools/.cache/flight.npz` to simulate it again, then run the `tube`, `cloud`
+and `meta` stages.
 
-- Self-hosted: put the file at `assets/video/supplementary_video_1.mp4` and a
-  poster frame at `assets/video/poster.jpg`. GitHub limits single files to 100 MB;
-  keep the encode under that or use the YouTube option.
-- YouTube: replace `VIDEO_ID` in the iframe `src`.
+`tools/reel.mjs` and `tools/shot.mjs` take screenshots of the running dev
+server at chosen loop times, on the GPU, for checking a change (`BARE=1`
+hides the interface, `CROP=x,y,w,h` cuts each frame), and `tools/motion.mjs`
+checks that the picture changes while the mission plays. `tools/probe.mjs`
+records where the camera is while the mission plays, and
+`tools/camera_clearance.py` gives its distance to the nearest lidar return
+and its speed inside each shot. Add `?quality=high` or `?quality=low` to the
+address to force the full or the light mesh and point file.
 
-## Add data and code links
+## The video
 
-In section `id="data"`, each row has a link `<a class="pending" href="#">` followed
-by a `<span class="badge">link to be added</span>`. For each released item, set the
-`href` to the DOI or repository URL, remove `class="pending"` and
-`aria-disabled="true"`, and delete the badge span.
+Put the file at `public/video/supplementary_video_1.mp4` and a poster frame at
+`public/video/poster.jpg`. The "Flight video" section appears when the file is
+there and stays hidden when it is not.
 
-## Add the preprint and the final citation
+## Publishing
 
-- Hero: the first button is `<a class="btn disabled" href="#">Preprint (coming
-  soon)</a>`. Set the `href`, remove `disabled` from the class list, remove
-  `aria-disabled`, and change the label.
-- Cite: replace the `@unpublished` entry inside `<pre id="bibtex">` with the
-  published reference. Escape non-ASCII characters in BibTeX as in the placeholder.
+`.github/workflows/pages.yml` builds the site and publishes `dist/` on every
+push to `main`. It needs one setting in the repository: Settings > Pages >
+Source: GitHub Actions. Until this branch is merged, `main` keeps serving the
+previous static page.
 
-## Ground-truth section
+## Sources and licences
 
-Section `id="groundtruth"` reports the tape measurements of 15 September 2026
-at the skylight rims against the registered model. Its figure
-(`assets/figures/rim_groundtruth.png`) comes from
-`lavatube_maps_data_analysis/analysis/make_web_groundtruth_figure.py` and its
-table from `analysis_out_v9/skylight_groundtruth.csv`; if the comparison is
-rerun, regenerate the figure, copy it at 1800 px wide, and update the table
-cells by hand from the CSV.
-
-## Regenerate figure copies
-
-The web copies were made from the 300 dpi PNGs in
-`lavatube_maps_data_analysis/analysis_out_v10/figures_nature/` with Python PIL:
-resize to 1800 px wide, JPEG quality 85 for photographic figures (fig2, ed1,
-ed3, ed4) and optimised PNG for the rest, falling back to JPEG when the PNG
-exceeds 600 KB. Thumbnails for the Extended Data grid are 600 px JPEGs with the
-suffix `_thumb`. The hero background `hero_fig3a.jpg` is a crop of Figure 3a.
-If a figure changes, rerun the same conversion and keep the file names.
-
-## License
-
-Site text, layout and code: CC BY 4.0 (see `LICENSE`). Figures are from the
-manuscript and follow its terms once published. The surface survey data belong
-to the Natural Science Institute of Iceland.
+Site content CC BY 4.0. The imagery of Mars is the Viking MDIM 2.1 colour
+mosaic (NASA, JPL, USGS; public domain), the strip under the orbit from the
+NASA Mars Trek tile service. Surface survey products: Natural
+Science Institute of Iceland, surveyor B. V. Óskarsson. Vehicle models are
+generic and were made for this page.
