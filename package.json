@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "description": "Project page: Autonomous interior survey of a lava tube for planetary habitat assessment",
+  "description": "Project page: Autonomous survey of lava tube interiors for planetary habitat assessment",
   "license": "CC-BY-4.0",
   "scripts": {
     "dev": "vite",

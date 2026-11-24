@@ -1,6 +1,6 @@
-# Project website: Autonomous interior survey of a lava tube
+# Project website: Autonomous survey of lava tube interiors
 
-Page for the manuscript "Autonomous interior survey of a lava tube for planetary
+Page for the manuscript "Autonomous survey of lava tube interiors for planetary
 habitat assessment" (Patel, Stathoulopoulos, Valdes Saucedo, Llewellin,
 Óskarsson, Nikolakopoulos; under review, 2026). Published at
 https://aakapatel.github.io/lavatube-survey/, the address the manuscript cites.
